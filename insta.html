@@ -1,268 +1,404 @@
-```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
-    <title>Instagram - Khuman</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram - Khuman</title>
 
-    <style>
+<link rel="icon" type="image/png" href="logo.png">
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            min-height: 100vh;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 25, 0.55),
-                    rgba(0, 0, 20, 0.78)
-                ),
-                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=90");
+body{
+    font-family:Arial,sans-serif;
+    color:white;
+    min-height:100vh;
 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    background:
+    linear-gradient(
+        rgba(0,0,0,.70),
+        rgba(0,0,0,.84)
+    ),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=90");
 
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
 
-        /* NAVBAR */
 
-        nav {
-            height: 75px;
+/* NAVBAR */
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
 
-            padding: 0 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-            background: rgba(0, 0, 20, 0.60);
-            backdrop-filter: blur(12px);
+    padding:14px 7%;
 
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-        }
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(15px);
 
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
 
-            background: linear-gradient(
-                90deg,
-                #00aaff,
-                #8a5cff
-            );
+/* KHUMAN LOGO */
 
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
+    font-size:22px;
+    font-weight:bold;
+}
 
-        .menu {
-            display: flex;
-            gap: 25px;
-        }
+.logo img{
+    width:45px;
+    height:45px;
 
+    border-radius:50%;
+    object-fit:cover;
 
-        .menu a {
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+    border:2px solid #ffd700;
 
+    box-shadow:
+    0 0 15px rgba(255,215,0,.5);
+}
 
-        .menu a:hover {
-            color: #00aaff;
-        }
+.logo span{
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #ffd700
+    );
 
+    -webkit-background-clip:text;
+    color:transparent;
+}
 
-        /* MAIN */
 
-        .container {
-            min-height: calc(100vh - 75px);
+/* MENU */
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+.menu{
+    display:flex;
+    gap:25px;
+}
 
-            padding: 40px 20px;
-        }
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 
+    transition:.3s;
+}
 
-        .instagram-box {
-            width: 90%;
-            max-width: 600px;
+.menu a:hover{
+    color:#ffd700;
+}
 
-            padding: 50px 35px;
 
-            text-align: center;
+/* MAIN */
 
-            background: rgba(0,0,0,0.38);
+.container{
+    min-height:calc(100vh - 75px);
 
-            backdrop-filter: blur(14px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-            border: 1px solid rgba(255,255,255,0.18);
+    padding:45px 20px;
+}
 
-            border-radius: 30px;
 
-            box-shadow:
-                0 20px 60px rgba(0,0,0,0.5);
-        }
+/* INSTAGRAM BOX */
 
+.insta-box{
+    width:100%;
+    max-width:700px;
 
-        .instagram-icon {
-            font-size: 75px;
-            margin-bottom: 10px;
-        }
+    padding:55px 30px;
 
+    text-align:center;
 
-        h1 {
-            font-size: 48px;
-            margin: 5px 0 10px;
+    background:rgba(255,255,255,.08);
 
-            background: linear-gradient(
-                90deg,
-                #ff4ecd,
-                #8b5cf6,
-                #00aaff
-            );
+    border:1px solid rgba(255,255,255,.20);
 
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+    border-radius:25px;
 
+    backdrop-filter:blur(15px);
 
-        .username {
-            font-size: 24px;
-            font-weight: bold;
-            color: #fff;
-        }
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
+}
 
 
-        .description {
-            color: #ccc;
-            font-size: 18px;
-            line-height: 1.6;
+/* REALISTIC INSTAGRAM ICON */
 
-            margin: 25px 0;
-        }
+.insta-icon{
+    width:115px;
+    height:115px;
 
+    margin:0 auto 28px;
 
-        /* FOLLOW BUTTON */
+    border-radius:30px;
 
-        .instagram-button {
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-            display: inline-block;
+    background:
+    linear-gradient(
+        145deg,
+        #5b1aa8 0%,
+        #833ab4 25%,
+        #e1306c 55%,
+        #fd1d1d 75%,
+        #fcb045 100%
+    );
 
-            padding: 16px 32px;
+    border:2px solid rgba(255,255,255,.35);
 
-            border-radius: 35px;
+    box-shadow:
+    inset 0 2px 5px rgba(255,255,255,.35),
+    inset 0 -8px 15px rgba(0,0,0,.25),
+    0 12px 25px rgba(0,0,0,.55),
+    0 0 35px rgba(225,48,108,.35);
 
-            color: white;
+    position:relative;
 
-            text-decoration: none;
+    overflow:hidden;
+}
 
-            font-size: 18px;
-            font-weight: bold;
 
-            background: linear-gradient(
-                90deg,
-                #ff1493,
-                #8b2be2,
-                #4169e1
-            );
+/* ICON SHINE */
 
-            box-shadow:
-                0 10px 30px rgba(139,43,226,0.35);
+.insta-icon::before{
+    content:"";
 
-            transition: 0.3s;
-        }
+    position:absolute;
 
+    width:150px;
+    height:45px;
 
-        .instagram-button:hover {
+    top:5px;
+    left:-20px;
 
-            transform: translateY(-5px) scale(1.03);
+    background:rgba(255,255,255,.22);
 
-            box-shadow:
-                0 15px 40px rgba(139,43,226,0.55);
-        }
+    transform:rotate(-25deg);
 
+    filter:blur(2px);
 
-        /* INFO */
+    border-radius:50%;
+}
 
-        .info {
 
-            margin-top: 35px;
+/* INSTAGRAM LOGO */
 
-            padding: 20px;
+.insta-icon svg{
+    width:68px;
+    height:68px;
 
-            background: rgba(255,255,255,0.06);
+    position:relative;
+    z-index:2;
 
-            border: 1px solid rgba(255,255,255,0.12);
+    filter:
+    drop-shadow(0 3px 4px rgba(0,0,0,.45));
+}
 
-            border-radius: 18px;
-        }
 
+/* HEADING */
 
-        .info p {
+h1{
+    font-size:clamp(42px,8vw,65px);
 
-            margin: 8px;
+    margin-bottom:15px;
 
-            color: #ddd;
-        }
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #ffd700
+    );
 
+    -webkit-background-clip:text;
+    color:transparent;
+}
 
-        .info strong {
-            color: #00aaff;
-        }
 
+/* TEXT */
 
-        /* MOBILE */
+.subtitle{
+    font-size:20px;
+    color:#ddd;
+    margin-bottom:15px;
+}
 
-        @media (max-width: 700px) {
+.username{
+    font-size:25px;
+    font-weight:bold;
+    color:#ffd700;
+    margin-bottom:20px;
+}
 
-            nav {
-                padding: 0 20px;
-            }
+.description{
+    max-width:600px;
 
-            .logo {
-                font-size: 23px;
-            }
+    margin:auto;
 
-            .menu {
-                gap: 12px;
-            }
+    color:#ccc;
 
-            .menu a {
-                font-size: 13px;
-            }
+    font-size:17px;
 
-            .instagram-box {
-                padding: 40px 20px;
-            }
+    line-height:1.8;
+}
 
-            h1 {
-                font-size: 38px;
-            }
 
-            .username {
-                font-size: 20px;
-            }
+/* FOLLOW BUTTON */
 
-            .description {
-                font-size: 16px;
-            }
+.btn{
+    display:inline-block;
 
-        }
+    margin-top:35px;
 
-    </style>
+    padding:16px 35px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.35);
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 30px rgba(255,100,50,.4);
+}
+
+
+/* BACK BUTTON */
+
+.back{
+    display:inline-block;
+
+    margin-top:18px;
+
+    color:#ccc;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.back:hover{
+    color:#ffd700;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    padding:30px 15px;
+
+    color:#aaa;
+
+    background:rgba(0,0,0,.65);
+
+    border-top:
+    1px solid rgba(255,255,255,.1);
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:12px 5%;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .logo img{
+        width:38px;
+        height:38px;
+    }
+
+    .menu{
+        gap:12px;
+    }
+
+    .menu a{
+        font-size:13px;
+    }
+
+    .insta-box{
+        padding:45px 20px;
+    }
+
+    .insta-icon{
+        width:100px;
+        height:100px;
+        border-radius:27px;
+    }
+
+    .insta-icon svg{
+        width:60px;
+        height:60px;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    .description{
+        font-size:16px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -270,98 +406,139 @@
 <body>
 
 
-    <nav>
+<!-- NAVBAR -->
 
-        <div class="logo">
-            👑 Khuman
-        </div>
+<nav>
 
+    <div class="logo">
 
-        <div class="menu">
+        <img src="logo.png" alt="Khuman Logo">
 
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="insta.html">
-                Instagram
-            </a>
-
-        </div>
-
-    </nav>
-
-
-
-    <div class="container">
-
-
-        <div class="instagram-box">
-
-
-            <div class="instagram-icon">
-                📸
-            </div>
-
-
-            <h1>
-                Instagram
-            </h1>
-
-
-            <div class="username">
-                @official.khuman_9
-            </div>
-
-
-            <p class="description">
-
-                Follow me on Instagram
-                and stay connected! 🚀
-
-                <br>
-
-                More updates, posts and
-                interesting things coming soon. ✨
-
-            </p>
-
-
-            <a
-                href="https://www.instagram.com/official.khuman_9/"
-                target="_blank"
-                class="instagram-button"
-            >
-                📸 Follow Me on Instagram
-            </a>
-
-
-            <div class="info">
-
-                <p>
-                    👑 <strong>Khuman</strong>
-                </p>
-
-                <p>
-                    🌟 Student • Learner • Dreamer
-                </p>
-
-                <p>
-                    🚀 Better Than Yesterday
-                </p>
-
-            </div>
-
-
-        </div>
+        <span>👑 Khuman</span>
 
     </div>
 
 
+    <div class="menu">
+
+        <a href="index.html">Home</a>
+
+        <a href="about.html">About</a>
+
+        <a href="insta.html">Instagram</a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- INSTAGRAM PAGE -->
+
+<div class="container">
+
+    <div class="insta-box">
+
+
+        <!-- REALISTIC INSTAGRAM LOGO -->
+
+        <div class="insta-icon">
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-label="Instagram logo"
+            >
+
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                />
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                />
+
+                <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1.2"
+                    fill="white"
+                />
+
+            </svg>
+
+        </div>
+
+
+        <h1>
+            Instagram
+        </h1>
+
+
+        <p class="subtitle">
+            Follow my journey on Instagram
+        </p>
+
+
+        <p class="username">
+            @official.khuman_9
+        </p>
+
+
+        <p class="description">
+
+            Follow me on Instagram to stay connected
+            and see my latest updates, interests,
+            learning journey and more. 🚀
+
+        </p>
+
+
+        <a
+            href="https://www.instagram.com/official.khuman_9/"
+            target="_blank"
+            class="btn"
+        >
+            Instagram • Follow Me
+        </a>
+
+
+        <br>
+
+
+        <a
+            href="index.html"
+            class="back"
+        >
+            ← Back to Home
+        </a>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Khuman. All Rights Reserved.
+
+</footer>
+
+
 </body>
 </html>
-```
