@@ -1,91 +1,402 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Khuman Ki Website</title>
+    <title>Khuman - Official Website</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background-color: lightblue;
+
+        * {
+            box-sizing: border-box;
         }
 
-        header {
-            background-color: darkblue;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
             color: white;
-            padding: 20px;
-            text-align: center;
+            min-height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 25, 0.55),
+                    rgba(0, 0, 20, 0.75)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(0, 0, 20, 0.55);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+
+            background: linear-gradient(
+                90deg,
+                #00aaff,
+                #8a5cff
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         .menu {
-            background-color: white;
-            text-align: center;
-            padding: 15px;
+            display: flex;
+            gap: 30px;
         }
 
         .menu a {
+            color: white;
             text-decoration: none;
-            margin: 10px;
-        }
-
-        button {
-            padding: 10px 20px;
             font-size: 16px;
-            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .content {
-            background-color: white;
-            width: 80%;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 30px;
-            text-align: center;
+        .menu a:hover {
+            color: #00aaff;
+        }
+
+        /* MAIN */
+
+        .hero {
+            min-height: calc(100vh - 75px);
+
+            display: flex;
+            align-items: center;
+
+            padding: 60px 8%;
+        }
+
+        .hero-content {
+            max-width: 650px;
+
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(8px);
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        .hello {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 70px;
+            margin: 0;
+
+            background: linear-gradient(
+                90deg,
+                #00aaff,
+                #8b5cf6
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .tagline {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .tagline span {
+            color: #00aaff;
+        }
+
+        .description {
+            color: #ddd;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 25px 0;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            color: white;
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                90deg,
+                #008cff,
+                #7c3aed
+            );
+
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,150,255,0.35);
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            min-width: 150px;
+
+            padding: 18px;
+
+            background: rgba(0,0,0,0.35);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
             border-radius: 15px;
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.3s;
         }
 
-        h2 {
-            color: darkblue;
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #00aaff;
         }
+
+        .card h3 {
+            margin: 0 0 8px;
+            color: #00aaff;
+        }
+
+        .card p {
+            margin: 0;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            position: absolute;
+
+            right: 6%;
+            bottom: 8%;
+
+            max-width: 230px;
+
+            padding: 20px;
+
+            background: rgba(0,0,0,0.4);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            border-radius: 18px;
+
+            backdrop-filter: blur(10px);
+
+            color: #ddd;
+
+            font-size: 16px;
+
+            line-height: 1.5;
+        }
+
+        .quote strong {
+            color: #00aaff;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .menu {
+                gap: 12px;
+            }
+
+            .menu a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero-content {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .tagline {
+                font-size: 19px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .quote {
+                display: none;
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Khuman Ki Website 👋</h1>
-        <p>Welcome to my website!</p>
-    </header>
+    <nav>
 
-    <div class="menu">
+        <div class="logo">
+            👑 Khuman
+        </div>
 
-        <a href="index.html">
-            <button>Home</button>
-        </a>
+        <div class="menu">
 
-        <a href="about.html">
-            <button>About Me</button>
-        </a>
+            <a href="index.html">Home</a>
 
-        <a href="insta.html">
-            <button>Instagram 📸</button>
-        </a>
+            <a href="about.html">About</a>
 
-    </div>
+            <a href="insta.html">Instagram</a>
 
-    <div class="content">
+        </div>
 
-        <h2>Welcome! 🎉</h2>
+    </nav>
 
-        <p>
-            I am Khuman and I am learning how to create websites.
-        </p>
 
-        <button onclick="alert('Hello Khuman! 👋')">
-            Say Hello
-        </button>
+    <section class="hero">
 
-    </div>
+        <div class="hero-content">
+
+            <div class="hello">
+                Hello, I'm
+            </div>
+
+            <h1>
+                Khuman
+            </h1>
+
+            <div class="tagline">
+                <span>Student</span>
+                &nbsp; | &nbsp;
+                Learner
+                &nbsp; | &nbsp;
+                Dreamer
+            </div>
+
+            <p class="description">
+                Welcome to my official website.
+                I am learning new things, exploring technology
+                and working towards a better future.
+            </p>
+
+
+            <div class="buttons">
+
+                <a href="about.html" class="btn btn-primary">
+                    👤 About Me →
+                </a>
+
+                <a
+                    href="https://www.instagram.com/official.khuman_9/"
+                    target="_blank"
+                    class="btn"
+                >
+                    📸 Follow on Instagram
+                </a>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>💻 Coding</h3>
+                    <p>Build • Learn • Grow</p>
+                </div>
+
+                <div class="card">
+                    <h3>📚 Study</h3>
+                    <p>Learn • Improve • Achieve</p>
+                </div>
+
+                <div class="card">
+                    <h3>⭐ Future</h3>
+                    <p>Dream • Work • Succeed</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="quote">
+            “Small steps every day
+            lead to big results.”
+            <br><br>
+            <strong>Better Than Yesterday 👑</strong>
+        </div>
+
+    </section>
 
 </body>
 </html>
+```

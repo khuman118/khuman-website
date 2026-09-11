@@ -1,103 +1,311 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>About Me - Khuman</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background-color: lightblue;
+
+        * {
+            box-sizing: border-box;
         }
 
-        header {
-            background-color: darkblue;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
             color: white;
-            padding: 20px;
-            text-align: center;
+            min-height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 25, 0.55),
+                    rgba(0, 0, 20, 0.75)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+
+            background: rgba(0, 0, 20, 0.60);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+
+            background: linear-gradient(90deg, #00aaff, #8a5cff);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         .menu {
-            background-color: white;
-            text-align: center;
-            padding: 15px;
+            display: flex;
+            gap: 25px;
         }
 
         .menu a {
+            color: white;
             text-decoration: none;
-            margin: 10px;
+            transition: 0.3s;
         }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+        .menu a:hover {
+            color: #00aaff;
         }
 
-        .content {
-            background-color: white;
-            width: 80%;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 30px;
+        .container {
+            min-height: calc(100vh - 75px);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 50px 20px;
+        }
+
+        .about-box {
+            width: 90%;
+            max-width: 750px;
+
+            padding: 45px;
+
             text-align: center;
-            border-radius: 15px;
+
+            background: rgba(0,0,0,0.38);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255,255,255,0.18);
+
+            border-radius: 25px;
+
+            box-shadow: 0 20px 60px rgba(0,0,0,0.45);
         }
 
-        h2 {
-            color: darkblue;
+        .icon {
+            font-size: 55px;
         }
 
-        p {
-            font-size: 18px;
+        h1 {
+            font-size: 55px;
+            margin: 10px 0;
+
+            background: linear-gradient(90deg, #00aaff, #8b5cf6);
+            -webkit-background-clip: text;
+            color: transparent;
         }
+
+        .intro {
+            font-size: 19px;
+            color: #ddd;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 200px;
+            padding: 20px;
+
+            background: rgba(0,0,0,0.35);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #00aaff;
+        }
+
+        .card h2 {
+            color: #00aaff;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 14px 28px;
+
+            color: white;
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            background: linear-gradient(90deg, #008cff, #7c3aed);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,150,255,0.4);
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .menu {
+                gap: 12px;
+            }
+
+            .menu a {
+                font-size: 13px;
+            }
+
+            .about-box {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .intro {
+                font-size: 17px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <header>
-        <h1>About Me 👤</h1>
-        <p>Get to know me</p>
-    </header>
+    <nav>
 
-    <div class="menu">
+        <div class="logo">
+            👑 Khuman
+        </div>
 
-        <a href="index.html">
-            <button>Home</button>
-        </a>
+        <div class="menu">
 
-        <a href="about.html">
-            <button>About Me</button>
-        </a>
+            <a href="index.html">Home</a>
 
-        <a href="insta.html">
-            <button>Instagram 📸</button>
-        </a>
+            <a href="about.html">About</a>
 
-    </div>
+            <a href="insta.html">Instagram</a>
 
-    <div class="content">
+        </div>
 
-        <h2>Hi, I'm Khuman 👋</h2>
+    </nav>
 
-        <p>
-            Welcome to my website!
-        </p>
 
-        <p>
-            I am a student and I am learning how to create websites.
-        </p>
+    <div class="container">
 
-        <p>
-            I like learning new things and exploring technology.
-        </p>
+        <div class="about-box">
 
-        <button onclick="alert('Thanks for visiting my website!')">
-            Say Hello
-        </button>
+            <div class="icon">
+                👤
+            </div>
 
-    </div>
+            <h1>
+                About Me
+            </h1>
 
-</body>
-</html>
+            <p class="intro">
+                Hi, I'm <strong>Khuman</strong> 👋
+                <br><br>
+
+                I am a student who enjoys learning
+                new things and exploring technology.
+
+                <br><br>
+
+                I am learning how websites are created
+                and how technology works.
+
+                <br><br>
+
+                My goal is to keep learning,
+                improving myself and building
+                something better every day. 🚀
+            </p>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h2>📚 Study</h2>
+
+                    <p>
+                        Learning new things and
+                        improving my knowledge.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>💻 Coding</h2>
+
+                    <p>
+                        Learning website development
+                        and technology.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>🚀 Future</h2>
+
+                    <p>
+                        Dream big, keep learning
+                        and work towards my goals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a href="insta.html" class="btn">
+                📸
+```
